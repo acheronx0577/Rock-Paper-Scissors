@@ -1,14 +1,17 @@
+// Create a score object that can be shared between functions
+function createScore() {
+    return {
+        Wins: 0,
+        Losses: 0,
+        Ties: 0
+    };
+}
 
-// In-memory score object — persists while the page is open
-const score = {
-    Wins: 0,
-    Losses: 0,
-    Ties: 0
-};
+// Initialize score
+let score = createScore();
 
 function play(playerMove) {
     const randomNumber = Math.random();
-
     let computerMove = '';
 
     if (randomNumber < 1/3) {
@@ -34,7 +37,14 @@ function play(playerMove) {
         result = 'You Lose!';
     }
 
-    // Update the in-memory score
+    // Update the score with the result
+    updateScores(result);
+
+    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`);
+}
+
+function updateScores(result) {
+    // Update the shared score object
     if (result === 'You Win!') {
         score.Wins += 1;
     } else if (result === 'You Lose!') {
@@ -42,13 +52,11 @@ function play(playerMove) {
     } else if (result === 'Tie.') {
         score.Ties += 1;
     }
-
-    alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`);
 }
 
-// records(action): if action === 'reset' clears the in-memory score, otherwise shows current scores
 function records(action) {
     if (action === 'reset') {
+        // Reset the shared score object
         score.Wins = 0;
         score.Losses = 0;
         score.Ties = 0;
