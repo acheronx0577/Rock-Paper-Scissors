@@ -4,7 +4,7 @@ A simple and fun Rock Paper Scissors game built with HTML and JavaScript with em
 
 ## How to Play 🎮
 
-1. Open `index.html` in your web browser
+1. Open `rock_paper_scissors.html` in your web browser
 2. Click on either 🪨 Rock, 📄 Paper, or ✂️ Scissors to make your choice
 3. The computer will randomly select its choice
 4. The result will be displayed showing who won the round 🏆
