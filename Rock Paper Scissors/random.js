@@ -1,14 +1,17 @@
-// Initialize score
+// 🎯 Initialize score from localStorage or set default values
 let score = JSON.parse(localStorage.getItem('score')) || {
     Wins: 0,
     Losses: 0,
     Ties:0
 }
 
+// 🎮 Main game function
 function play(playerMove) {
+    // 🎲 Generate random number for computer's move
     const randomNumber = Math.random();
     let computerMove = '';
 
+    // 🤖 Determine computer's move based on random number
     if (randomNumber < 1/3) {
         computerMove = 'Rock';
     } else if (randomNumber < 2/3){
@@ -17,6 +20,7 @@ function play(playerMove) {
         computerMove = 'Scissors';
     }
 
+    // ⚔️ Determine game result
     let result = '';
     if (playerMove === computerMove) {
         result = 'Tie.';
@@ -30,14 +34,17 @@ function play(playerMove) {
         result = 'You Lose!';
     }
 
-    // Update the score with the result
+    // 📊 Update the score with the result
     updateScores(result);
 
+    // 💾 Save updated score to localStorage
     localStorage.setItem('score', JSON.stringify(score));
 
+    // 🎪 Show result alert with updated scores
     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`);
 }
 
+// 📈 Update score based on game result
 function updateScores(result) {
     // Update the shared score object
     if (result === 'You Win!') {
@@ -49,6 +56,7 @@ function updateScores(result) {
     }
 }
 
+// 🔄 Reset score records
 function records(action) {
     if (action === 'reset') {
         // Reset the shared score object
@@ -58,4 +66,3 @@ function records(action) {
         return;
     }
 }
-
