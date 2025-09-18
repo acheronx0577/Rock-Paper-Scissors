@@ -1,14 +1,5 @@
-// Create a score object that can be shared between functions
-function createScore() {
-    return {
-        Wins: 0,
-        Losses: 0,
-        Ties: 0
-    };
-}
-
 // Initialize score
-let score = createScore();
+let score = JSON.parse(localStorage.getItem('score'));
 
 function play(playerMove) {
     const randomNumber = Math.random();
@@ -40,6 +31,8 @@ function play(playerMove) {
     // Update the score with the result
     updateScores(result);
 
+    localStorage.setItem('score', JSON.stringify(score));
+
     alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`);
 }
 
@@ -64,3 +57,4 @@ function records(action) {
         return;
     }
 }
+
