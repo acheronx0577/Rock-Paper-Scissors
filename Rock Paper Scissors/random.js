@@ -1,5 +1,9 @@
 // Initialize score
-let score = JSON.parse(localStorage.getItem('score'));
+let score = JSON.parse(localStorage.getItem('score')) || {
+    Wins: 0,
+    Losses: 0,
+    Ties:0
+}
 
 function play(playerMove) {
     const randomNumber = Math.random();
@@ -12,8 +16,6 @@ function play(playerMove) {
     } else {
         computerMove = 'Scissors';
     }
-
-    console.log(computerMove);
 
     let result = '';
     if (playerMove === computerMove) {
@@ -50,9 +52,8 @@ function updateScores(result) {
 function records(action) {
     if (action === 'reset') {
         // Reset the shared score object
-        score.Wins = 0;
-        score.Losses = 0;
-        score.Ties = 0;
+        score = {Wins: 0, Losses: 0, Ties: 0};
+        localStorage.removeItem('score')
         alert('Scores have been reset to 0.');
         return;
     }
