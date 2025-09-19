@@ -1,7 +1,7 @@
 # Rock Paper Scissors Game 🪨 📄 ✂️
 
 A simple and fun Rock Paper Scissors game built with HTML and JavaScript with emoji visuals!
-<img width="997" height="962" alt="image" src="https://github.com/user-attachments/assets/e43598d7-e293-41cd-9677-bc3d233f82cf" />
+<img width="796" height="645" alt="image" src="https://github.com/user-attachments/assets/0249cd3e-4b9c-4c61-b084-7b37f7dbb471" />
 
 
 ## How to Play 🎮
