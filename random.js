@@ -41,10 +41,8 @@ function play(playerMove) {
     localStorage.setItem('score', JSON.stringify(score));
 
     // 🎪 Show result alert with updated scores
-    // Also update the on-page result area
+
     renderResult(playerMove, computerMove, result);
-    // Keep alert for compatibility (comment out if undesired)
-    // alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result} \n Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`);
 }
 
 // 📈 Update score based on game result
@@ -113,3 +111,4 @@ function initResultToggle() {
 
 // Initialize toggle when script loads
 initResultToggle();
+
