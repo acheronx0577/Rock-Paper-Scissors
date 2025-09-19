@@ -22,12 +22,11 @@ body {
 			#420b1c);
 	background-size: 600% 600%;
 	animation: gradientMix 90s ease infinite;
-	/* slower & smoother */
 	color: #e6eef8;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 2rem;
+	padding: 1rem;
 }
 
 /* Smooth, mixed, looping gradient */
@@ -57,31 +56,28 @@ body {
 	}
 }
 
-
 /* Card container */
 .rps-card {
-	width: 100%;
+	width: 95%;
 	max-width: 540px;
-	/* Use less transparent gradients to prevent light bleed */
 	background: linear-gradient(180deg,
 			rgba(109, 49, 133, 0.95),
 			rgba(36, 26, 82, 0.95) 55%,
 			rgba(94, 12, 37, 0.95));
 	border-radius: 16px;
-	padding: 2.25rem;
+	padding: 2rem;
 	backdrop-filter: blur(6px) saturate(120%);
-	/* Remove clip-path from card or use overflow: hidden instead */
 	overflow: hidden;
 	position: relative;
+	margin: 0 auto;
 }
 
 .rps-title {
 	position: relative;
-	top: -20px;
+	top: -15px;
 	font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-	font-size: 2.1rem;
-	font-weight: 625;
-	/* Less bold than 700 */
+	font-size: 2rem;
+	font-weight: 600;
 	letter-spacing: 0.4px;
 	text-align: center;
 	margin-bottom: 1.25rem;
@@ -103,7 +99,7 @@ body {
 
 /* Buttons */
 .rps-btn {
-	--btn-size: 130px;
+	--btn-size: 120px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -112,15 +108,13 @@ body {
 	border-radius: 12px;
 	border: none;
 	cursor: pointer;
-	color: rgba(255, 255, 255, 0.76);
+	color: rgba(255, 255, 255, 0.9);
 	font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
-	font-weight: 790;
-	letter-spacing: 0.8px;
-	font-size: 1.3rem;
-	/* Simplify transition - remove background transition */
+	font-weight: 700;
+	letter-spacing: 0.6px;
+	font-size: 1.1rem;
 	transition: transform 180ms cubic-bezier(.22, .9, .32, 1);
 	box-shadow: 0 8px 24px rgba(3, 10, 30, 0.5);
-	/* Add container for clipping */
 	position: relative;
 	overflow: hidden;
 }
@@ -130,52 +124,88 @@ body {
 }
 
 .rps-btn:hover {
-	/* Remove scale transform to prevent light bleed */
 	transform: translateY(-2px);
 }
 
-/* Button specific styles with less transparency */
+/* Button specific styles */
 .rps-btn.rock {
 	position: relative;
-	top: -27px;
+	top: -20px;
 	background: linear-gradient(135deg, #6a46bd, #9b3065, #754e09);
 	box-shadow: 0 8px 24px rgba(88, 59, 151, 0.3);
 }
 
 .rps-btn.paper {
 	position: relative;
-	top: -27px;
+	top: -20px;
 	background: linear-gradient(135deg, #2b38ac, #41058f, #6b3697);
 	box-shadow: 0 8px 24px rgba(75, 124, 202, 0.3);
 }
 
 .rps-btn.scissors {
 	position: relative;
-	top: -27px;
+	top: -20px;
 	background: linear-gradient(135deg, #c53737, #743909, #83067d);
 	box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
 }
 
+/* Result container */
+.result-container {
+	position: relative;
+	top: 10px;
+	min-height: 60px;
+	margin-bottom: 10px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.result-text {
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.4rem;
+	font-weight: 600;
+	background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	padding: 0.5rem 0;
+}
+
+/* Reset button */
 .rps-btn.reset {
 	position: relative;
-	top: 37px;
+	top: 25px;
 	background: linear-gradient(135deg, #8721a7, #46106e, #871c45);
 	width: auto;
+	min-width: 140px;
 	height: 44px;
 	padding: 0 20px;
 	border-radius: 12px;
 	font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
 	font-weight: 600;
 	font-size: 1rem;
-	color: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
 	box-shadow: 0 6px 20px rgba(171, 29, 184, 0.25);
 	letter-spacing: 0.5px;
 	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	color: white;
+}
+
+.rps-btn.reset span {
+	background: linear-gradient(135deg, #a78bfa, #60a5fa, #f472b6);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .rps-btn.reset:hover {
 	transform: translateY(-2px);
 }
+
 .rps-btn:focus {
 	outline: 3px solid rgba(255, 255, 255, 0.06);
 }
@@ -188,15 +218,83 @@ body {
 	font-size: 0.95rem;
 }
 
-/* Responsive tweaks */
-@media (max-width: 420px) {
+/* Improved responsive design */
+@media (max-width: 600px) {
+	body {
+		padding: 0.5rem;
+		align-items: flex-start;
+		padding-top: 2rem;
+	}
+
 	.rps-card {
-		padding: 1rem;
+		width: 100%;
+		padding: 1.5rem;
+		border-radius: 12px;
+	}
+
+	.rps-title {
+		font-size: 1.7rem;
+		top: -10px;
+		margin-bottom: 1rem;
 	}
 
 	.rps-btn {
 		--btn-size: 100px;
+		font-size: 1rem;
+		top: -15px !important;
+	}
+
+	.result-container {
+		top: 5px;
+		min-height: 50px;
+	}
+
+	.result-text {
+		font-size: 1.2rem;
+	}
+
+	.rps-btn.reset {
+		top: 20px;
+		height: 40px;
 		font-size: 0.9rem;
+		padding: 0 16px;
+		min-width: 120px;
+	}
+}
+
+@media (max-width: 420px) {
+	.rps-card {
+		padding: 1.25rem;
+	}
+
+	.rps-title {
+		font-size: 1.5rem;
+	}
+
+	.rps-btn {
+		--btn-size: 90px;
+		font-size: 0.9rem;
+	}
+
+	.rps-row {
+		gap: 0.5rem;
+	}
+
+	.result-container {
+		top: 0;
+		min-height: 40px;
+		margin-bottom: 5px;
+	}
+
+	.result-text {
+		font-size: 1.1rem;
+	}
+
+	.rps-btn.reset {
+		top: 15px;
+		height: 38px;
+		font-size: 0.85rem;
+		min-width: 110px;
 	}
 }
 
@@ -217,48 +315,8 @@ body {
 	animation: pulseWin 420ms ease-out 1;
 }
 
-/* Remove or fix these generic styles that might be causing issues */
-body>p:first-of-type {
-	display: block;
-	text-align: center;
-	font-size: 1.5rem;
-	font-weight: 600;
-	color: #f1f9ff;
-	margin-bottom: 1rem;
-}
-
+/* Remove generic body styles that might conflict */
+body>p:first-of-type,
 body>button {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 110px;
-	height: 48px;
-	margin: 6px;
-	padding: 0 14px;
-	border-radius: 10px;
-	border: none;
-	cursor: pointer;
-	color: white;
-	font-weight: 700;
-	letter-spacing: 0.4px;
-	transition: transform 180ms ease;
-	box-shadow: 0 6px 18px rgba(3, 10, 30, 0.45);
-	background: rgba(109, 49, 133, 0.95);
-}
-
-body>button:active {
-	transform: translateY(2px) scale(0.995);
-}
-
-body>button:hover {
-	transform: translateY(-2px);
-}
-
-@media (max-width: 420px) {
-	body>button {
-		display: block;
-		width: 100%;
-		max-width: 280px;
-		margin: 8px auto;
-	}
+	display: none;
 }
